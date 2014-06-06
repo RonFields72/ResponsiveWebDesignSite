@@ -1,0 +1,209 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MobileSampleSite.master.cs" Inherits="MobileSampleSite" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>UBH Responsive Web Forms Template</title>
+    <meta name="viewport" content="width=device-width, intial-scale=1" />
+    <link href="styles/master-page.css" rel="stylesheet" />
+    <telerik:RadCodeBlock runat="server">
+        <script src="<%= ResolveUrl("scripts/EqatecMonitor.min.js")%>" type="text/javascript"></script>
+    </telerik:RadCodeBlock>
+
+    <script>
+        (function (g) {
+            if (g._eqatecmonitor)
+                return;
+            try {
+                // Create the monitor instance
+                var settings = _eqatec.createSettings("3706ccaf5bf44c67877b8218c8a3e5af");
+                settings.version = "1.2.3";
+                var monitor = g._eqatecmonitor = _eqatec.createMonitor(settings);
+                // Start the monitor when your application starts
+                monitor.start();
+            }
+            catch (e) {
+                console.log("Telerik Analytics exception: " + e.description);
+            }
+        })(window);
+    </script>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-111455-1']);
+        _gaq.push(['_setDomainName', '.telerik.com']);
+        _gaq.push(['_addIgnoredRef', 'telerik.com']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        function trackPage(page) {
+            _gaq.push(['_trackPageview', page]);
+        }
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
+        <telerik:RadStyleSheetManager runat="server" ID="RadStyleSheetManager"></telerik:RadStyleSheetManager>
+
+        <telerik:RadAjaxManager runat="server" ID="RadAjaxManagerContentUpdater">
+            <AjaxSettings>
+                <telerik:AjaxSetting AjaxControlID="RadDropDownFontSizePostBack">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="ContentPlaceHolder1" />
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+            </AjaxSettings>
+        </telerik:RadAjaxManager>
+
+        <telerik:RadPageLayout runat="server" ID="RadPageLayoutFooter" RenderRowWrappers="Root" CssClass="main-container" GridType="Fluid">
+            <Rows>
+                <telerik:LayoutRow WrapperCssClass="main-content" CssClass="expand-row">
+                    <Content>
+                        <telerik:RadPageLayout runat="server" ID="RadPageLayoutMasterContent" RenderRowWrappers="Root" GridType="Fluid" CssClass="MobileSiteLayout">
+                            <Rows>
+                                <telerik:LayoutRow WrapperCssClass="header-wrapper">
+                                    <Columns>
+                                        <telerik:LayoutColumn HiddenMd="true" SpanXs="6" SpanSm="6" HiddenSm="true" HiddenXs="true" CssClass="t-rwd-rem-pad">
+                                            <a class="t-rwd-logo" href="http://www.telerik.com">
+                                                <img src="<%= ResolveUrl("Images/telerik-logo-top.png") %>" alt="Telerik Develop Experiences" /></a>
+                                        </telerik:LayoutColumn>
+                                        <telerik:LayoutColumn Span="9" HiddenXl="true" HiddenLg="true">
+                                            <div style="width: 100%">
+                                                <a class="t-rwd-logo" href="http://www.telerik.com/products/aspnet-ajax.aspx">
+                                                    <img src="<%= ResolveUrl("Images/telerik-ajax-logo-small.png") %>" alt="Telerik Develop Experiences" /></a>
+                                            </div>
+                                        </telerik:LayoutColumn>
+                                        <telerik:LayoutColumn Span="3" HiddenXl="true" HiddenLg="true">
+                                            <telerik:RadMenu runat="server" ID="RadMenuHeader" RenderMode="Mobile" Height="195px" Visible="false" Skin="MetroTouch" DataSourceID="SiteMapDataSourceMenu" CssClass="t-rwd-menu-mobile">
+                                            </telerik:RadMenu>
+                                        </telerik:LayoutColumn>
+                                    </Columns>
+                                </telerik:LayoutRow>
+
+                                <telerik:LayoutRow WrapperCssClass="menu-wrapper t-hidden-md t-hidden-sm t-hidden-xs">
+                                    <Columns>
+                                        <telerik:LayoutColumn Span="7" SpanLg="7" SpanMd="4" SpanSm="5" SpanXs="5" CssClass="t-rwd-rem-pad">
+                                            <telerik:RadMenu runat="server" ID="RadMenuMain" RenderMode="Auto" Skin="MetroTouch" DataSourceID="SiteMapDataSourceMenu">
+                                            </telerik:RadMenu>
+                                        </telerik:LayoutColumn>
+
+                                        <telerik:LayoutColumn Span="5" SpanLg="5" SpanMd="8" SpanSm="7" SpanXs="7" CssClass="t-rwd-try-now-buttons">
+                                            <telerik:RadButton ID="RadButtonFeedback" runat="server" ButtonType="LinkButton" NavigateUrl="http://feedback.telerik.com/Project/108" Skin="MetroTouch" OnClientClicking="onClientClickFeedback" Text="Give Feedback"></telerik:RadButton>
+                                            <telerik:RadButton ID="RadButtonTryNow" runat="server" ButtonType="LinkButton" NavigateUrl="http://www.telerik.com/products/aspnet-ajax/download.aspx" Skin="MetroTouch" Text="Try Now" CssClass="t-rwd-prim"></telerik:RadButton>
+                                            <telerik:RadButton ID="RadButtonBuyNow" runat="server" ButtonType="LinkButton" NavigateUrl="http://www.telerik.com/purchase/individual/aspnet-ajax.aspx" Skin="MetroTouch" Text="Buy Now" CssClass="t-rwd-prim"></telerik:RadButton>
+                                        </telerik:LayoutColumn>
+                                    </Columns>
+                                </telerik:LayoutRow>
+
+                                <telerik:LayoutRow WrapperCssClass="logo-wrapper t-hidden-md t-hidden-sm t-hidden-xs" CssClass="t-rwd-relative">
+                                    <Columns>
+                                        <telerik:LayoutColumn SpanXl="6" SpanLg="6" HiddenMd="true" HiddenSm="true" HiddenXs="true" CssClass="t-rwd-rem-pad">
+                                            <div class="t-rwd-logo-wrapper">
+                                                <img src="<%= ResolveUrl("Images/ajax-logo.png")%>" alt="UI for ASP.NE AJAX" />
+                                            </div>
+                                        </telerik:LayoutColumn>
+                                        <telerik:LayoutColumn SpanXl="6" SpanLg="6" HiddenMd="true" HiddenSm="true" HiddenXs="true" CssClass="t-rwd-ssh-dt">
+                                            <telerik:RadSocialShare runat="server" ID="RadSocialShareHeader" CssClass="t-rwd-SocialShare" Skin="MetroTouch">
+                                                <MainButtons>
+                                                    <telerik:RadSocialButton UrlToShare="http://tlrk.it/1ftdIPY" TitleToShare="Responsive web design in #ASPNET AJAX – cool resources and demos from Telerik." SocialNetType="ShareOnFacebook" />
+                                                    <telerik:RadSocialButton UrlToShare="http://tlrk.it/1hBSxyn" TitleToShare="Responsive web design in #ASPNET AJAX – cool resources and demos from Telerik." SocialNetType="ShareOnTwitter" />
+                                                    <telerik:RadSocialButton UrlToShare="http://tlrk.it/OFE1gN" TitleToShare="Responsive web design in #ASPNET AJAX – cool resources and demos from Telerik." SocialNetType="LinkedIn"></telerik:RadSocialButton>
+                                                </MainButtons>
+                                            </telerik:RadSocialShare>
+                                        </telerik:LayoutColumn>
+                                    </Columns>
+                                </telerik:LayoutRow>
+                                <telerik:LayoutRow WrapperCssClass="content-wrapper" CssClass="expand-row">
+                                    <Content>
+                                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </Content>
+                                </telerik:LayoutRow>
+                            </Rows>
+                        </telerik:RadPageLayout>
+                    </Content>
+                </telerik:LayoutRow>
+                <telerik:LayoutRow WrapperCssClass="footer-content footer-wrapper">
+                    <Columns>
+                        <telerik:LayoutColumn Span="12">
+                            <telerik:RadSocialShare runat="server" ID="RadSocialShareBottom" Visible="false" CssClass="t-rwd-SocialShare" Skin="MetroTouch">
+                                <MainButtons>
+                                    <telerik:RadSocialButton UrlToShare="http://tlrk.it/1ftdIPY" TitleToShare="Responsive web design in #ASPNET AJAX – cool resources and demos from Telerik." SocialNetType="ShareOnFacebook" />
+                                    <telerik:RadSocialButton UrlToShare="http://tlrk.it/1hBSxyn" TitleToShare="Responsive web design in #ASPNET AJAX – cool resources and demos from Telerik." SocialNetType="ShareOnTwitter" />
+                                    <telerik:RadSocialButton UrlToShare="http://tlrk.it/OFE1gN" TitleToShare="Responsive web design in #ASPNET AJAX – cool resources and demos from Telerik." SocialNetType="LinkedIn"></telerik:RadSocialButton>
+                                </MainButtons>
+                            </telerik:RadSocialShare>
+                        </telerik:LayoutColumn>
+                        <telerik:LayoutColumn Span="12" HiddenSm="true" HiddenXs="true" CssClass="t-rwd-rem-pad">
+                            <img src="<%= ResolveUrl("Images/telerik-logo-footer.png")%>" alt="Telerik Develop Experiences" class="t-rwd-bottom-logo" />
+                        </telerik:LayoutColumn>
+                        <telerik:LayoutColumn Span="6" SpanSm="12" SpanXs="12" CssClass="t-rwd-rem-pad">
+                            <div class="t-rwd-quick-links">
+                                <a onclick="_gaq.push(['_trackEvent', 'footer-nav', 'text', 'terms-of-use']);" href="http://www.telerik.com/company/terms-of-use">Terms of Use</a>
+                                <a onclick="_gaq.push(['_trackEvent', 'footer-nav', 'text', 'feedback']);" href="http://www.telerik.com/company/feedback">Site Feedback</a>
+                                <a onclick="_gaq.push(['_trackEvent', 'footer-nav', 'text', 'privacy-policy']);" href="http://www.telerik.com/company/privacy-policy">Privacy Policy</a>
+                            </div>
+
+                        </telerik:LayoutColumn>
+                        <telerik:LayoutColumn Span="6" SpanSm="12" SpanXs="12">
+                            <small>Copyright &copy; 2002-<asp:Literal runat="server" ID="currentYear"></asp:Literal>
+                                Telerik. All rights reserved.</small>
+                        </telerik:LayoutColumn>
+                    </Columns>
+                </telerik:LayoutRow>
+            </Rows>
+        </telerik:RadPageLayout>
+
+        <asp:SiteMapDataSource runat="server" ID="SiteMapDataSourceMenu" ShowStartingNode="false" />
+        <asp:SiteMapDataSource runat="server" ID="SiteMapDataSourcePanelBar" StartingNodeUrl="#" ShowStartingNode="false" />
+
+        <script type="text/javascript">
+            var loaded = false;
+
+            function pageLoad() {
+                if (!loaded) {
+                    var socialShareHeader = $find("<%=RadSocialShareHeader.ClientID%>"),
+                        socialShareBottom = $find("<%=RadSocialShareBottom.ClientID%>");
+
+                    if (socialShareHeader) {
+                        addGooglePlusOneButton(socialShareHeader);
+                    }
+
+                    if (socialShareBottom) {
+                        addGooglePlusOneButton(socialShareBottom);
+                    }
+
+                    loaded = true;
+                }
+            }
+
+            function addGooglePlusOneButton(socialShare) {
+                var element = socialShare._element,
+                    googlePlusElement = $telerik.$("<li class='sshListItem'><a class='sshLinkItem' title='Share on GooglePlus' href='javascript:void(0)' onclick='shareWithGooglePlus()'><span class='sshIcon sshGooglePlus'></span></a></li>");
+
+                $telerik.$(element).find(".sshContent").append(googlePlusElement);
+            }
+
+            function onClientClickFeedback(sender, args) {
+                _gaq.push(['_trackPageview', '/virtual/ajax-responsive-sample-app/feedback-portal']);
+            }
+
+            function shareWithGooglePlus() {
+                window.open("https://plus.google.com/share?url=http://tlrk.it/1cTHGQp", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, width=400, height=500");
+            }
+        </script>
+
+    </form>
+</body>
+</html>

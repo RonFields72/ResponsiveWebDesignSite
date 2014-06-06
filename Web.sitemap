@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title=""  description="">
+    <siteMapNode url="Default.aspx" title="RESPONSIVE WEB DESIGN" description="" />
+    <siteMapNode url="samples.aspx" title="DEMOS"  description="" >
+      <siteMapNode url="samples/adaptive-behavior.aspx" title="Adaptive Behavior"  description="" >
+        <siteMapNode url="samples/adaptive/menu.aspx" title="Menu"  description="" />
+        <siteMapNode url="samples/adaptive/scheduler.aspx" title="Scheduler"  description="" />
+      </siteMapNode>
+      <siteMapNode url="samples/elastic-behavior.aspx" title="Elastic Behavior"  description="" >
+        <siteMapNode url="samples/elastic/dock.aspx" title="Dock"  description="" />
+        <siteMapNode url="samples/elastic/menu.aspx" title="Menu"  description="" />
+        <siteMapNode url="samples/elastic/registration-form.aspx" title="Registration Form"  description="" />
+        <siteMapNode url="samples/elastic/window.aspx" title="Window"  description="" />
+      </siteMapNode>
+      <siteMapNode url="samples/responsive-behavior.aspx" title="Responsive Behavior"  description="" >
+        <siteMapNode url="samples/responsive/image-gallery.aspx" title="Image Gallery"  description="" />
+        <siteMapNode url="samples/responsive/tilelist.aspx" title="TileList"  description="" />
+      </siteMapNode>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
