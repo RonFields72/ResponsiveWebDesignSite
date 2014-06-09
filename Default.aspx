@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MobileSampleSite.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="ResponsiveWebDesignOverview" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <title>Mobile ASP.NET, Telerik Responsive Web Design in ASP.NET</title>
+    <title>Mobile ASP.NET, Telerik Responsive Web Design in ASP.NET Coolness</title>
     <meta description="Introduction to Responsive Web Design in ASP.NET - responsive design for ASP.NET developers who build web apps targeting all screen resolutions." />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
